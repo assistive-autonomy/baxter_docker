@@ -1,0 +1,12 @@
+# Ignore these files
+*.DS_STORE
+
+
+# Ignore src folder (so we don't commit changes from independent repos)
+src/*
+# But we allow changes to the repos file
+!src/*.repos
+
+# Ignore deployment files
+# docker/deploy_image.tar
+# docker/cooked-docker-autostart.service

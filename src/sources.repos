@@ -1,0 +1,17 @@
+repositories:
+  baxter_myo:
+    type: git
+    url: git@github.com:assistive-autonomy/baxter_myo.git
+    version: demo
+  ros_myo:
+    type: git
+    url: git@github.com:assistive-autonomy/ros_myo.git
+    version: demo
+  # baxter_cube:
+  #   type: git
+  #   url: git@github.com:assistive-autonomy/baxter_cube.git
+  #   version: main
+  procman_ros:
+    type: git
+    url: git@github.com:assistive-autonomy/procman_ros
+    version: main

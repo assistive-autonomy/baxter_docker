@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "colcon build cooked_runtime",
+            "type": "shell",
+            "command": "colcon",
+            "args": [
+                "build",
+                "--symlink-install",
+                "--cmake-args",
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DBUILD_TESTS=OFF",
+                "--parallel-workers",
+                "8",
+                "--packages-up-to",
+                "cooked_runtime"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc",
+                "$cmake-parser"
+            ]
+        }
+    ]
+}
