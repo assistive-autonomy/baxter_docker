@@ -1,4 +1,4 @@
-FROM ros:indigo-ros-base AS base
+FROM osrf/ros:indigo-desktop-full AS base
 
 # Install basic dev tools (And clean apt cache afterwards)
 RUN apt-get update \
@@ -9,10 +9,8 @@ RUN apt-get update \
         curl \
         g++ \
         libnss-mdns \
-        ros-indigo-control-msgs \
-        ros-indigo-joystick-drivers \
-        ros-indigo-baxter-sdk \
-        ros-indigo-tf \
+        ros-indigo-apriltags-ros \
+        clang-3.6 \
         python-pip \
     && rm -rf /var/lib/apt/lists/*
 
