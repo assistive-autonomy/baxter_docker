@@ -1,4 +1,4 @@
-FROM ros:indigo-ros-base AS base
+FROM osrf/ros:indigo-desktop-full AS base
 
 # Install basic dev tools (And clean apt cache afterwards)
 RUN apt-get update \
@@ -9,10 +9,8 @@ RUN apt-get update \
         curl \
         g++ \
         libnss-mdns \
-        ros-indigo-control-msgs \
-        ros-indigo-joystick-drivers \
-        ros-indigo-baxter-sdk \
-        ros-indigo-tf \
+        ros-indigo-apriltags-ros \
+        clang-3.6 \
         python-pip \
     && rm -rf /var/lib/apt/lists/*
 
@@ -59,6 +57,8 @@ COPY ./ "$ROS_WS"/src/baxter_docker_launch
 # -----------------------------------------------------------------------
 
 FROM base AS dev
+
+ENV QT_X11_NO_MITSHM=1
 
 # Copy prebuild nebula ros driver from base
 RUN mkdir -p "$ROS_WS"/install

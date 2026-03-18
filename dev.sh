@@ -50,6 +50,9 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
+MOUNT_X="-e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix"
+xhost + >/dev/null
+
 # Verify CYCLONE_DIR exists
 if [ -n "$CYCLONE_VOL" ]; then
     if [ ! -f "$CYCLONE_DIR" ]; then
@@ -65,6 +68,9 @@ DOCKER_BUILDKIT=1 docker build \
 
 # Run docker image with local code volumes for development
 docker run -it --rm --net host --privileged \
+    ${MOUNT_X} \
+    -e XAUTHORITY="${XAUTHORITY}" \
+    -e XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" \
     -v /dev:/dev \
     -v /tmp:/tmp \
     -v /etc/localtime:/etc/localtime:ro \
