@@ -2,12 +2,12 @@ repositories:
   baxter_myo:
     type: git
     url: git@github.com:assistive-autonomy/baxter_myo.git
-    version: master
+    version: demo
   ros_myo:
     type: git
     url: git@github.com:assistive-autonomy/ros_myo.git
     version: master
-  # baxter_cube:
-  #   type: git
-  #   url: git@github.com:assistive-autonomy/baxter_cube.git
-  #   version: main
+  baxter_tower:
+    type: git
+    url: git@github.com:assistive-autonomy/baxter_tower.git
+    version: master
