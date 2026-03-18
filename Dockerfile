@@ -58,6 +58,8 @@ COPY ./ "$ROS_WS"/src/baxter_docker_launch
 
 FROM base AS dev
 
+ENV QT_X11_NO_MITSHM=1
+
 # Copy prebuild nebula ros driver from base
 RUN mkdir -p "$ROS_WS"/install
 # COPY --from=base "$ROS_WS"/install "$ROS_WS"/install
