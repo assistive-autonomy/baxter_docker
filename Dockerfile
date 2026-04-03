@@ -40,10 +40,11 @@ WORKDIR $ROS_WS
 #     && catkin_make --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 COPY ./scripts $ROS_WS/scripts
+COPY ./config $ROS_WS/config
 
 # Soft link to custom baxter .rviz config in scripts dir
 RUN mkdir -p /root/.rviz
-RUN ln -s /opt/ros_ws/scripts/baxter_tower.rviz /root/.rviz/default.rviz
+RUN ln -s /opt/ros_ws/config/rviz/baxter_tower.rviz /root/.rviz/default.rviz
 
 # RUN ./scripts/install-baxter-sdk.sh
 

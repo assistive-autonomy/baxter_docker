@@ -75,6 +75,7 @@ docker run -it --rm --net host --privileged \
     -v /tmp:/tmp \
     -v /etc/localtime:/etc/localtime:ro \
     -v ./scripts:/opt/ros_ws/scripts \
+    -v ./config:/opt/ros_ws/config \
     -v ./src:/opt/ros_ws/src \
     -v ./deps:/opt/ros_ws/deps \
     $CYCLONE_VOL \
