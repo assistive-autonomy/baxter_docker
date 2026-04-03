@@ -11,7 +11,7 @@ services:
         - GID=${GID}
     container_name: baxter_devel
     image: assistive-autonomy:baxter_devel
-    # env_file: .env
+    env_file: .env
     # environment:
       # - YOUR_IP=${YOUR_IP}
       # - HOSTNAME=${YOUR_HOSTNAME}
