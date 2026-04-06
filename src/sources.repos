@@ -1,0 +1,22 @@
+repositories:
+  baxter_myo:
+    type: git
+    url: git@github.com:assistive-autonomy/baxter_myo.git
+    version: button-sm
+  ros_myo:
+    type: git
+    url: git@github.com:assistive-autonomy/ros_myo.git
+    version: demo
+  baxter_tower:
+    type: git
+    url: git@github.com:assistive-autonomy/baxter_tower.git
+    version: esf-2026-demo
+  rad_baxter_stack:
+    type: git
+    url: git@github.com:assistive-autonomy/rad_baxter_stack.git
+    version: feature_branch
+  baxter-python3:
+    type: git
+    url: git@github.com:igor-lirussi/baxter-python3.git
+    version: main
+    

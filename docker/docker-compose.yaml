@@ -1,0 +1,21 @@
+services:
+  baxter_devel:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: dev
+      args:
+        - ROS_WS=${ROS_WS}
+      ssh:
+        - default
+    container_name: baxter_devel
+    image: assistive-autonomy:baxter_devel
+    env_file: blurr.env
+
+    network_mode: "host"
+    privileged: true
+    tty: true
+    volumes:
+      # - ../src:${ROS_WS}/src
+      - /dev:/dev
+      - /tmp:/tmp

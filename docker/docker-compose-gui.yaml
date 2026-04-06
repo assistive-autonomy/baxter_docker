@@ -1,0 +1,12 @@
+services:
+  baxter_devel:
+    extends:
+      file: docker-compose.yaml
+      service: baxter_devel
+    environment:
+     - DISPLAY=${DISPLAY}
+     - XAUTHORITY=${XAUTHORITY}
+     - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
