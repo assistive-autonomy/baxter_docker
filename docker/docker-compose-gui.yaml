@@ -5,6 +5,7 @@ services:
       service: baxter_devel
     environment:
      - DISPLAY=${DISPLAY}
+     - XAUTHORITY=${XAUTHORITY}
      - QT_X11_NO_MITSHM=1
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw

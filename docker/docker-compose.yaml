@@ -5,50 +5,17 @@ services:
       dockerfile: docker/Dockerfile
       target: dev
       args:
-        - AMENT_WORKSPACE_DIR=${AMENT_WORKSPACE_DIR}
-        - USERNAME=${USERNAME:-ubuntu}
-        - UID=${UID}
-        - GID=${GID}
+        - ROS_WS=${ROS_WS}
+      ssh:
+        - default
     container_name: baxter_devel
     image: assistive-autonomy:baxter_devel
-    env_file: .env
-    # environment:
-      # - YOUR_IP=${YOUR_IP}
-      # - HOSTNAME=${YOUR_HOSTNAME}
-      # - ROBOT_IP=${ROBOT_IP}
-      # - RMW_IMPLEMENTATION=rmw_cyclone_dds_cpp
+    env_file: blurr.env
 
-    # extra_hosts:
-    #   - "cooked-cpc-jamie:192.168.106.13"
-    #   - "cooked-cpc-delia:192.168.106.14"
-    #   - "cooked-apc-gpu:192.168.106.22"
-    #   - "cooked-cpc-dev:192.168.106.23"
-
-    # Required for communicating over the network
     network_mode: "host"
-
-    # Shared memory allocation size
-    shm_size: '640m'
-
-    # Required for accessing hardware
     privileged: true
     tty: true
     volumes:
-      # Required to load the local workspace packages
-      - ../src:${AMENT_WORKSPACE_DIR}/src
-      # Required to load the Zenoh configuration
-      # - ../zenoh/cooked-opc:${AMENT_WORKSPACE_DIR}/zenoh
-      # Required for accessing hardware
+      # - ../src:${ROS_WS}/src
       - /dev:/dev
-      # Required for accessing storage media
-      #- /media:/media
-      # Required for ROS 2 shared memory communication
-      - /dev/shm:/dev/shm
-
-    # Required to work with realtime patch
-    cap_add:
-      - SYS_NICE
-    ulimits:
-      rtprio: 99
-      rttime: -1 # corresponds to 'unlimited'
-      memlock: 8428281856
+      - /tmp:/tmp
